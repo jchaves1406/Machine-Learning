@@ -30,12 +30,10 @@ int main(int argc, char *argv[])
      * en los datos de entrada. */
     int filas = conjuntoDatos.size() + 1;
     int columnas = conjuntoDatos[0].size();
-
+    
+    /* Elaboración de matrices */
     Eigen::MatrixXd matrizDF = extraccion.CSVtoEigen(conjuntoDatos, filas, columnas);
-    //std::cout << matrizDF << std::endl;
-
     Eigen::MatrixXd difPromedio = matrizDF.rowwise() - extraccion.Promedio(matrizDF);
-
     Eigen::MatrixXd matrixNorm = extraccion.Normalizacion(difPromedio);
 
     /* Se requiere verificar la funcion TrainTestSplit si la division de numero de filas y columnas
@@ -46,33 +44,6 @@ int main(int argc, char *argv[])
     /* Se desempqueta la tupla del objeto: https://www.cplusplus.com/reference/tuple/tuple/ */
     std::tie(X_train, y_train, x_test, y_test) = divDatos;
 
-
-    /* Inspeccion visual de filas y columnas en entrenamiento
-    std::cout << "Total de filas:                   " << matrixNorm.rows() << std::endl;
-    std::cout << "Total de columnas:                " << matrixNorm.cols() << std::endl;
-    std::cout << "Total filas entrenamiento F:      " << X_train.rows() << std::endl;
-    std::cout << "Total columnas entrenamiento F:   " << X_train.cols() << std::endl;
-    std::cout << "Total filas entrenamiento T:      " << y_train.rows() << std::endl;
-    std::cout << "Total columnas entrenamiento T:   " << y_train.cols() << std::endl;
-    std::cout << "===================================================================================================================================" << std::endl;
-    std::cout << "Total de filas:                   " << matrixNorm.rows() << std::endl;
-    std::cout << "Total de columnas:                " << matrixNorm.cols() << std::endl;
-    std::cout << "Total filas prueba F:             " << x_test.rows() << std::endl;
-    std::cout << "Total columnas prueba F:          " << x_test.cols() << std::endl;
-    std::cout << "Total filas prueba T:             " << y_test.rows() << std::endl;
-    std::cout << "Total columnas prueba T:          " << y_test.cols() << std::endl;
-    */
-    /*
-    std::cout << matrixNorm << std::endl;
-    std::cout << "===================================================================================================================================\n Promedios:" << std::endl;
-
-    std::cout << extraccion.Promedio(matrizDF) << std::endl;
-    std::cout << "===================================================================================================================================\n Desviacion estandar:" << std::endl;
-
-    std::cout << extraccion.DesviacionEstandar(difPromedio) << std::endl;
-
-    std::cout << "===================================================================================================================================" << std::endl;
-*/
     /* Se crean dos vectores para prueba y entrenamiento respectivamente en unos para probar el
      * modelo de regresion lineal */
     Eigen::VectorXd vectorTrain = Eigen::VectorXd::Ones(X_train.rows());
