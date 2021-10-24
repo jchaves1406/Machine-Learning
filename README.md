@@ -1,6 +1,6 @@
 # Machine-Learning
 
-![Usa Jesus.PNG](https://www.iartificial.net/wp-content/uploads/2019/02/IA-1024x549.jpg)
+![Usa Jesus.PNG](https://github.com/jchaves1406/Personales/blob/main/background.jpg)
 
 #**Regresion Lineal**
 
