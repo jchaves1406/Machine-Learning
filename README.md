@@ -1,4 +1,4 @@
-[_](https://github.com/jchaves1406/Personales/blob/main/wallpaperbetter%20(1).jpg)
+![](https://github.com/jchaves1406/Personales/blob/main/wallpaperbetter%20(1).jpg)
 # Machine-Learning
 
 **Regresion Lineal**
